@@ -15844,6 +15844,22 @@ span.comma1 {
   margin-bottom: 20px;
 }
 
+@media (max-width: 1360px) and (min-width: 900px) {
+  #featured_sponsors .sponsors-single:first-child {
+    width: 64%;
+  }
+}
+
+@media (max-width: 800px) {
+  div#featured_sponsors {
+    height: 678px;
+  }
+
+  #featured_sponsors div.sponsors-single:nth-child(3n + 3) {
+    display: none;
+  }
+}
+
 @media (max-width: 767px) {
   .social_contactus {
     display: flex;
@@ -15952,4 +15968,10 @@ span.comma1 {
   float: left;
   margin: 31px;
   width: 309px;
+}
+
+@media (max-width: 600px) {
+  div#featured_sponsors {
+    height: 950px;
+  }
 }
