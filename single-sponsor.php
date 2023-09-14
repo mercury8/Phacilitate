@@ -128,6 +128,7 @@ $content = get_the_content();
                             <div class="title_tick"><h2><?php the_title(); ?></h2>
                             <?php if ( 'yes' == get_field('paid_version') ): ?>
                                                 <img src="/wp-content/uploads/2023/06/verified-gold.png" alt="verfied" style="width: 16px;height: 16px;margin-left: 4px;">
+
                             <?php else: ?>       
                             <?php endif; ?>
                             </div>
