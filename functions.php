@@ -1599,7 +1599,7 @@ function featured_sponsors()
                                 <h2><?php the_title(); ?></h2>
                                 <p><?= the_field('sub_title') ?></p>
                                 <?php if ( 'on' == get_field('paid_version') ): ?>
-                                    <img src="/wp-content/uploads/2023/06/verified.png" alt="verfied" style="width: 16px;height: 16px;margin-left: 4px;">
+                                    <img src="/wp-content/uploads/2023/09/verified-gold.png" alt="verfied" style="width: 16px;height: 16px;margin-left: 4px;">
                                 <?php else: ?>
                                 <?php endif; ?>
                             </a>
@@ -1847,7 +1847,7 @@ function main_sponsors()
 		                <h2><a href="<?php echo get_the_permalink(); ?>"><?php the_title(); ?></a></h2>
 		                <!-- <p><?= the_field('sub_title') ?></p> -->
                         <?php if ( 'on' == get_field('paid_version') ): ?>
-                            <img src="/wp-content/uploads/2023/06/verified.png" alt="verfied" style="width: 16px;height: 16px;margin-left: 4px;">
+                            <img src="/wp-content/uploads/2023/09/verified-gold.png" alt="verfied" style="width: 16px;height: 16px;margin-left: 4px;">
                         <?php else: ?>
                         <?php endif; ?>
 		            </div>
