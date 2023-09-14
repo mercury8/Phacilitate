@@ -7,9 +7,76 @@ get_header();
 $content = get_the_content();
 ?>
 
-<section class="container firstmain-sidebar-primary">
-            <div>
-                <div class="float-right d-block firstmain-sidebar bg-white">
+
+
+    <section class="container firstmain-sidebar-primary">
+                <div>
+                <?php if ( 'yes' == get_field('paid_version') ): ?>
+                    <div class="float-right d-block firstmain-sidebar bg-white">
+                            <h3>CONTACT INFO</h3>
+                            <div class="firstmain-side-add-pho">
+                                <?php if( get_field('address') ): ?>
+                                        <i class="fas fa-map-marker-alt float-left mr-3"></i>
+                                        <div class="address-side"><?php the_field('address'); ?></div>
+                                <?php endif; ?>
+                                <br/>
+                                    <?php if( get_field('phone_number') ): ?>
+                                        <i class="fas fa-phone float-left mr-3"></i>
+                                        <div class="phoone-side"><?php the_field('phone_number'); ?></div>
+                                    <?php endif; ?>
+                            </div>
+                        
+                            <hr>
+                            <h3>PRIMARY ACTIVITIES</h3>
+                            <?php //the_field('primary_activities'); 
+                                $terms = get_the_terms( $post->ID, 'product' );
+                            if ( $terms && ! is_wp_error( $terms ) ) {
+                                echo '<div class="secondTag">';
+                            
+                            //$x = 0;
+                            foreach ( $terms as $term ) {
+                                echo '<p>' . $term->name . '</p>';
+                            }
+                            echo '</div>';
+                            }
+                            ?>
+
+                           
+                                <?php
+                                    $terms = get_the_terms( get_the_ID(), 'modality' );
+                                    if ( $terms && ! is_wp_error( $terms ) ) :
+                                    ?>
+                                    <hr>
+                                <h3>COMPANY TYPE</h3>
+                                <?php
+                                $terms = get_the_terms( $post->ID, 'modality' );
+                                if ( $terms && ! is_wp_error( $terms ) ) {
+                                    echo '<div class="firstTag">';
+                                
+                                $x = 0;
+                                foreach ( $terms as $term ) {
+                                    echo '<span class="comma'.  $x++ .'">/ </span><p>' . $term->name . '</p>';
+                                }
+                                echo '</div>';
+                                } ?>
+                              
+                            
+                            <?php endif; ?>
+                            
+                    </div>
+                    <?php endif; ?> 
+                </div>
+    </section>
+   
+<!-- section separator a -->
+    <section class="main_bg_directory">
+        <section class="container">
+
+            <section class="firstSec-singleSponsor d-flex">
+            <?php if ( 'yes' == get_field('paid_version') ): ?>  
+                <div  class="container mobile-sidebar">
+                <?php if ( 'yes' == get_field('paid_version') ): ?>    
+                    <div class="float-right d-block firstmain-sidebar bg-white mobile-sidebar-secondary">
                         <h3>CONTACT INFO</h3>
                         <div class="firstmain-side-add-pho">
                             <?php if( get_field('address') ): ?>
@@ -22,7 +89,30 @@ $content = get_the_content();
                                     <div class="phoone-side"><?php the_field('phone_number'); ?></div>
                                 <?php endif; ?>
                         </div>
-                    
+                        
+                        
+                        <?php if ( 'yes' == get_field('paid_version') ): ?>
+                                <?php
+                                    $terms = get_the_terms( get_the_ID(), 'modality' );
+                                    if ( $terms && ! is_wp_error( $terms ) ) :
+                                    ?>
+                                    <hr>
+                                <h3>COMPANY TYPE</h3>
+                                <?php
+                                $terms = get_the_terms( $post->ID, 'modality' );
+                                if ( $terms && ! is_wp_error( $terms ) ) {
+                                    echo '<div class="firstTag">';
+                                
+                                $x = 0;
+                                foreach ( $terms as $term ) {
+                                    echo '<span class="comma'.  $x++ .'">/ </span><p>' . $term->name . '</p>';
+                                }
+                                echo '</div>';
+                                } ?>
+                                <?php endif; ?>
+                        <?php endif; ?>
+                        
+
                         <hr>
                         <h3>PRIMARY ACTIVITIES</h3>
                         <?php //the_field('primary_activities'); 
@@ -37,84 +127,13 @@ $content = get_the_content();
                         echo '</div>';
                         }
                         ?>
-
-                        <?php if ( 'yes' == get_field('paid_version') ): ?>
-                            <?php
-                                $terms = get_the_terms( get_the_ID(), 'modality' );
-                                if ( $terms && ! is_wp_error( $terms ) ) :
-                                ?>
-                                <hr>
-                            <h3>COMPANY TYPE</h3>
-                            <?php
-                            $terms = get_the_terms( $post->ID, 'modality' );
-                            if ( $terms && ! is_wp_error( $terms ) ) {
-                                echo '<div class="firstTag">';
-                            
-                            $x = 0;
-                            foreach ( $terms as $term ) {
-                                echo '<span class="comma'.  $x++ .'">/ </span><p>' . $term->name . '</p>';
-                            }
-                            echo '</div>';
-                            } ?>
-                            <?php endif; ?>
-                        <?php endif; ?>
+                    
                         
-                </div>
-            </div>
-</section>
-<!-- section separator a -->
-    <section class="main_bg_directory">
-        <section class="container">
-
-            <section class="firstSec-singleSponsor d-flex">
-                <div class="container mobile-sidebar">
-                <div class="float-right d-block firstmain-sidebar bg-white mobile-sidebar-secondary">
-                    <h3>CONTACT INFO</h3>
-                    <div class="firstmain-side-add-pho">
-                        <?php if( get_field('address') ): ?>
-                                <i class="fas fa-map-marker-alt float-left mr-3"></i>
-                                <div class="address-side"><?php the_field('address'); ?></div>
-                        <?php endif; ?>
-                        <br/>
-                            <?php if( get_field('phone_number') ): ?>
-                                <i class="fas fa-phone float-left mr-3"></i>
-                                <div class="phoone-side"><?php the_field('phone_number'); ?></div>
-                            <?php endif; ?>
                     </div>
-                    
-                    
-                        <!-- <hr>
-                    <h3>COMPANY TYPE</h3> -->
-                    <?php
-                    //$terms = get_the_terms( $post->ID, 'modality' );
-                    //if ( $terms && ! is_wp_error( $terms ) ) {
-                        //echo '<div class="firstTag">';
-                    
-                    //$x = 0;
-                    //foreach ( $terms as $term ) {
-                        //echo '<span class="comma'.  $x++ .'">/ </span><p>' . $term->name . '</p>';
-                    //}
-                    //echo '</div>';
-                    //} ?>
-                    
+                <?php endif; ?> 
 
-                    <hr>
-                    <h3>PRIMARY ACTIVITIES</h3>
-                    <?php //the_field('primary_activities'); 
-                        $terms = get_the_terms( $post->ID, 'product' );
-                    if ( $terms && ! is_wp_error( $terms ) ) {
-                        echo '<div class="secondTag">';
-                    
-                    //$x = 0;
-                    foreach ( $terms as $term ) {
-                        echo '<p>' . $term->name . '</p>';
-                    }
-                    echo '</div>';
-                    }
-                    ?>
+
                 
-                    
-                </div>
                 <?php breadcrumbs($id); ?>
                     <div class="top-section-free float-left bg-white mr-2">
                     <div class="free_banner"><img src="<?php the_field('free_banner'); ?>"/></div>
@@ -193,8 +212,155 @@ $content = get_the_content();
                                 </div>     
                             <?php else: ?>     
                             <?php endif; ?>
+            
+            <!-- unpaid                  -->
+            <?php else: ?>  
 
 
+                <div  class="mobile-sidebar" style="max-width:850px; margin:auto;">
+                <?php if ( 'yes' == get_field('paid_version') ): ?>    
+                    <div class="float-right d-block firstmain-sidebar bg-white mobile-sidebar-secondary">
+                        <h3>CONTACT INFO</h3>
+                        <div class="firstmain-side-add-pho">
+                            <?php if( get_field('address') ): ?>
+                                    <i class="fas fa-map-marker-alt float-left mr-3"></i>
+                                    <div class="address-side"><?php the_field('address'); ?></div>
+                            <?php endif; ?>
+                            <br/>
+                                <?php if( get_field('phone_number') ): ?>
+                                    <i class="fas fa-phone float-left mr-3"></i>
+                                    <div class="phoone-side"><?php the_field('phone_number'); ?></div>
+                                <?php endif; ?>
+                        </div>
+                        
+                        
+                        <?php if ( 'yes' == get_field('paid_version') ): ?>
+                                <?php
+                                    $terms = get_the_terms( get_the_ID(), 'modality' );
+                                    if ( $terms && ! is_wp_error( $terms ) ) :
+                                    ?>
+                                    <hr>
+                                <h3>COMPANY TYPE</h3>
+                                <?php
+                                $terms = get_the_terms( $post->ID, 'modality' );
+                                if ( $terms && ! is_wp_error( $terms ) ) {
+                                    echo '<div class="firstTag">';
+                                
+                                $x = 0;
+                                foreach ( $terms as $term ) {
+                                    echo '<span class="comma'.  $x++ .'">/ </span><p>' . $term->name . '</p>';
+                                }
+                                echo '</div>';
+                                } ?>
+                                <?php endif; ?>
+                        <?php endif; ?>
+                        
+
+                        <hr>
+                        <h3>PRIMARY ACTIVITIES</h3>
+                        <?php //the_field('primary_activities'); 
+                            $terms = get_the_terms( $post->ID, 'product' );
+                        if ( $terms && ! is_wp_error( $terms ) ) {
+                            echo '<div class="secondTag">';
+                        
+                        //$x = 0;
+                        foreach ( $terms as $term ) {
+                            echo '<p>' . $term->name . '</p>';
+                        }
+                        echo '</div>';
+                        }
+                        ?>
+                    
+                        
+                    </div>
+                <?php endif; ?> 
+
+
+                
+                <?php breadcrumbs($id); ?>
+                    <div class="top-section-free float-left bg-white mr-2">
+                    <div class="free_banner"><img src="<?php the_field('free_banner'); ?>"/></div>
+                        <div class="featureSponsor float-left"> 
+                            <?php the_post_thumbnail( 'full', array( 'class' => 'sponsorImg' ) ); ?>
+                        </div>
+
+                        <div class="top_section_dir">
+
+                        <div class="contentArea mw-100">
+                            <div class="title_tick"><h2><?php the_title(); ?></h2>
+                            <?php if ( 'yes' == get_field('paid_version') ): ?>
+                                                <img src="/wp-content/uploads/2023/09/verified-gold.png" alt="verfied" style="width: 16px;height: 16px;margin-left: 4px;">
+                            <?php else: ?>       
+                            <?php endif; ?>
+                            </div>
+                            <p class="titleSub-single"><?php the_field('heading_sub_title_single_page_'); ?></p>
+                        
+                            
+
+                            <div class="social_contactus">
+                            <?php if ( 'yes' == get_field('paid_version') ): ?>
+                                <div class="socialMedia-single">
+                                        <ul>
+                                        <?php if( get_field('email_link') ): ?>
+                                                <li><a href="<?php the_field('email_link'); ?>"><i class="fas fa-envelope"></i></a></li>
+                                            <?php endif; ?>
+                                            <?php if( get_field('url_link') ): ?>
+                                                <li><a href="<?php the_field('url_link'); ?>"target="_blank"><i class="fas fa-link"></i></a></li>
+                                            <?php endif; ?>
+                                            <?php if( get_field('linkedin_link') ): ?>
+                                                <li><a href="<?php the_field('linkedin_link'); ?>"target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                            <?php endif; ?>
+                                            <?php if( get_field('twitter_link') ): ?>
+                                                <li><a href="<?php the_field('twitter_link'); ?>"target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                            <?php endif; ?>
+                                        </ul>
+                                    </div>
+                            <?php else: ?>       
+                            <?php endif; ?>
+
+                            <?php if ( 'yes' == get_field('paid_version') ): ?>
+
+                                <?php if( get_field('contact_us') ): ?>
+                                <div class="contact_paid_dir">
+                                <a class="btn" href="<?php the_field('contact_us'); ?>" target="_blank" >CONTACT US</a>
+                                </div>
+                                <?php endif; ?>
+
+                            <?php else: ?>     
+                            <?php endif; ?>
+
+                            </div>
+
+                        </div>
+                                
+                                
+
+                                
+
+                                </div>
+
+                                </div>
+                            
+
+                            <?php if ( 'yes' == get_field('paid_version') ): ?>
+                                <div class="firstSec-Maincontent float-left mr-2 bg-white">
+                                    <div class="firstSec-topcontent">
+                                        <div>Year Founded<br/><strong><?php the_field('founder_year'); ?></strong></div>
+                                        <div>Stage<br/><strong><?php the_field('stage'); ?></strong></div>
+                                        <div>Member Since<br/><strong><?php the_field('member_since'); ?></strong></div>
+                                        <div class="employer_profile">Employees<br/><strong><i style="margin-right:12px;" class="fas fa-users"></i><?php the_field('employees'); ?></strong></div>
+                                    </div>
+                                    <hr>
+                                    <div><?php the_content(); ?><?php the_field('main_content'); ?>
+                                </div>     
+                            <?php else: ?>     
+                            <?php endif; ?>
+                
+                
+
+            <?php endif; ?>
+
+            <!-- finished -->
 
 
 
