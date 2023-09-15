@@ -1598,9 +1598,11 @@ function featured_sponsors()
                             <a href="<?php the_permalink(); ?>">
                                 <h2><?php the_title(); ?></h2>
                                 <p><?= the_field('sub_title') ?></p>
-                                <?php if ( 'on' == get_field('paid_version') ): ?>
-                                    <img src="/wp-content/uploads/2023/09/verified-gold.png" alt="verfied" style="width: 16px;height: 16px;margin-left: 4px;">
-                                <?php else: ?>
+                                <?php if ( get_field('paid__unpiad') == false and get_field('paid_version') == true  ): ?>
+                                <img src="/wp-content/uploads/2023/06/verified.png" alt="verfied" style="width: 16px;height: 16px;margin-left: 4px;">
+                                <?php elseif ( get_field('paid__unpiad') == true and get_field('paid_version') == true ): ?> 
+                                <img src="/wp-content/uploads/2023/09/verified-gold.png" alt="verfied" style="width: 16px;height: 16px;margin-left: 4px;"> 
+                                    
                                 <?php endif; ?>
                             </a>
                         </div>
@@ -1846,10 +1848,12 @@ function main_sponsors()
 		            <div class="contentArea tick">
 		                <h2><a href="<?php echo get_the_permalink(); ?>"><?php the_title(); ?></a></h2>
 		                <!-- <p><?= the_field('sub_title') ?></p> -->
-                        <?php if ( 'on' == get_field('paid_version') ): ?>
-                            <img src="/wp-content/uploads/2023/09/verified-gold.png" alt="verfied" style="width: 16px;height: 16px;margin-left: 4px;">
-                        <?php else: ?>
-                        <?php endif; ?>
+                        <?php if ( get_field('paid__unpiad') == false and get_field('paid_version') == true  ): ?>
+                                <img src="/wp-content/uploads/2023/06/verified.png" alt="verfied" style="width: 16px;height: 16px;margin-left: 4px;">
+                            <?php elseif ( get_field('paid__unpiad') == true and get_field('paid_version') == true ): ?> 
+                             <img src="/wp-content/uploads/2023/09/verified-gold.png" alt="verfied" style="width: 16px;height: 16px;margin-left: 4px;"> 
+                                 
+                            <?php endif; ?>
 		            </div>
 		        </div>
               
