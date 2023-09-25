@@ -145,17 +145,12 @@ $content = get_the_content();
 
                         <div class="contentArea mw-100">
                             <div class="title_tick"><h2><?php the_title(); ?></h2>
+
                             <?php if ( get_field('paid__unpiad') == false and get_field('paid_version') == true  ): ?>
                                 <img src="/wp-content/uploads/2023/06/verified.png" alt="verfied" style="width: 16px;height: 16px;margin-left: 4px;">
                             <?php elseif ( get_field('paid__unpiad') == true and get_field('paid_version') == true ): ?> 
                              <img src="/wp-content/uploads/2023/09/verified-gold.png" alt="verfied" style="width: 16px;height: 16px;margin-left: 4px;"> 
-                                 
-                            <?php endif; ?>
-
-                           
-
-                             
-                                
+                                                      
 
                             
                             </div>

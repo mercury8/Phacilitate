@@ -2290,13 +2290,17 @@ ol li {
   background: 0 0;
   color: #83ac16;
 }
+
 @media (min-width: 1232px) {
+
   .site-header .header-menu.mobile,
   .site-header .header-toggle-open {
     display: none;
   }
 }
+
 @media (max-width: 1231px) {
+
   .site-header .header-toggle-open {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3354,7 +3358,9 @@ body .pea_cook_wrapper.pea_cook_topcenter button.pea_cook_btn:hover {
   width: 100%;
 }
 .three_column_grid .item .item_inner .content_section {
+
   height: calc(100% - 225px);
+
   padding: 32px 0;
   display: -webkit-box;
   display: -ms-flexbox;
