@@ -2290,13 +2290,13 @@ ol li {
   background: 0 0;
   color: #83ac16;
 }
-@media (min-width: 1232px) {
+@media (min-width: 1255px) {
   .site-header .header-menu.mobile,
   .site-header .header-toggle-open {
     display: none;
   }
 }
-@media (max-width: 1231px) {
+@media (max-width: 1254px) {
   .site-header .header-toggle-open {
     display: -webkit-box;
     display: -ms-flexbox;
