@@ -2697,7 +2697,7 @@ body .pea_cook_wrapper.pea_cook_topcenter button.pea_cook_btn:hover {
 .search_main_wrapper .search_main_form {
   position: relative;
   margin: 0 0 30px;
-  max-width: 420px;
+  /* max-width: 420px; */
 }
 @media (max-width: 767px) {
   .search_main_wrapper .search_main_form {
