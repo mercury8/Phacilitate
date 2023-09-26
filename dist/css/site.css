@@ -2291,7 +2291,7 @@ ol li {
   color: #83ac16;
 }
 
-@media (min-width: 1232px) {
+@media (min-width: 1255px) {
 
   .site-header .header-menu.mobile,
   .site-header .header-toggle-open {
@@ -2299,7 +2299,7 @@ ol li {
   }
 }
 
-@media (max-width: 1231px) {
+@media (max-width: 1254px) {
 
   .site-header .header-toggle-open {
     display: -webkit-box;
@@ -2701,7 +2701,7 @@ body .pea_cook_wrapper.pea_cook_topcenter button.pea_cook_btn:hover {
 .search_main_wrapper .search_main_form {
   position: relative;
   margin: 0 0 30px;
-  max-width: 420px;
+  /* max-width: 420px; */
 }
 @media (max-width: 767px) {
   .search_main_wrapper .search_main_form {
