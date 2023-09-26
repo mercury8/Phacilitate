@@ -5,4 +5,4 @@ This repository contains theme files for Phacilitate.
 
 ## Versioning
 
-The repository utilizes semantic versioning. The current version can be found in the main theme (site.css) [site.css] file.
+The repository utilizes semantic versioning. The current version can be found in the main theme file.
