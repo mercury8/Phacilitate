@@ -18,7 +18,7 @@ global $wp_query;
 				<div class="container">
 					<div class="search_main_wrapper">
 						
-						<div class="search_main_form m-auto">
+						<div class="search_main_form m-auto pb-4">
 							<?php get_search_form(); ?>
 							<!-- <a href="javascript:void(0)" class="search-close">
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,54 +33,19 @@ global $wp_query;
 							<div class="tabs">
 								<ul class="tabs-nav">
 									
-									<li class="active"><a href="#all">All</a></li>
-									<li ><a href="#insights">Insights and Resources</a></li>
-									<li><a href="#events">Events</a></li>
+									<li class="active"><a href="#insights">Insights and Resources</a></li>
+									
+									<li><a href="#events">Event News</a></li>
 									<li><a href="#news">News</a></li>
 									<li><a href="#explore">Explore</a></li>
 								</ul>								
 								<div class="tabs-stage">
-								<div id="all" class="Search_list" >
+								<div id="insights" class="Search_list" >
+									
 										<?php 
 										$postQuery = new WP_Query(array(
 											'nopaging' => true,
-											'post_type'        =>  'post',
-											'post_status'    => 'publish',
-											'fields' => 'ids',
-											// 'content_type' =>'insight',
-											
-											's' => get_search_query(),
-											// 'date_query' => array(
-											// 	array(
-											// 		'after'     => 'January 1st, 2022',
-											// 		'before'    => 'January 1st, 2024',
-											// 		'inclusive' => true,
-											// 	),
-											// ),
-										));
-										$postList = $postQuery->posts;
-										// $maxPages = $postQuery->max_num_pages;
-										// echo '<pre>'; print_r( $postList ); echo '</pre>';
-										if( count( $postList ) > 0 ):
-										?>
-										
-										<div class="search_count"><?php echo $postQuery->found_posts.' results found'; ?></div>
-										<h6 class="heading h6">Explore</h6>
-										<?php
-											foreach ( $postList as $key => $post_id ) {
-												set_query_var( 'post_id', $post_id );
-												get_template_part( 'template-parts/content', 'search' );
-											}
-										else:
-											get_template_part( 'template-parts/content', 'none' );				
-										endif; 
-										?>										
-									</div>
-									<div id="insights" class="Search_list" style="display: none;">
-										<?php 
-										$postQuery = new WP_Query(array(
-											'nopaging' => true,
-											'post_type'        => 'insight',
+											'post_type'        => 'post',
 											
 											'post_status'    => 'publish',
 											'fields' => 'ids',
